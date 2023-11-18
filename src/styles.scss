@@ -1,3 +1,5 @@
+@use "./scss/abstracts" as a;
+
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -12,7 +14,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  color: #333;
+  background-color: a.$color-primary-black;
+  color: a.$regular-text-color;
 }
 
 h1,
