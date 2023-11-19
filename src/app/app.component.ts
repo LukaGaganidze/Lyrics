@@ -10,6 +10,8 @@ import { SearchArtistsService } from 'src/api/artists/search-artists.service';
 import { GetAlbumService } from 'src/api/albums/get-album.service';
 import { SearchAlbumsService } from 'src/api/albums/search-albums.service';
 
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -20,10 +22,12 @@ export class AppComponent implements OnInit {
     private tokenSerNew: TokenForHttpRequstesService,
     private albumSearchSer: SearchAlbumsService,
     private getTrackSerachSer: SearchArtistsService,
-
+    private http: HttpClient,
     private albumSer: GetAlbumService
   ) {}
   ngOnInit(): void {
+ 
+
     this.tokenSerNew.apiTokenMaganger();
   }
 

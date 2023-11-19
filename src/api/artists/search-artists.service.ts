@@ -12,6 +12,9 @@ import { Subscription } from 'rxjs';
   providedIn: 'root',
 })
 export class SearchArtistsService implements OnDestroy {
+  searchForTrack(name: string): any {
+    throw new Error('Method not implemented.');
+  }
   // acess token
   private accesstoken = '';
   private accessTokenSubscription!: Subscription;
@@ -29,13 +32,13 @@ export class SearchArtistsService implements OnDestroy {
   }
 
   // get tracks by search input
-  searchForTrack(searchInput: string) {
+  searchForArtist(searchInput: string) {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Authorization', 'Bearer ' + this.accesstoken);
 
     // http get request
-    this.http.get<GetArtistBySearchType>(
+    return this.http.get<GetArtistBySearchType>(
       environment.apiUrl +
         `/v1/search?q=` +
         searchInput +
