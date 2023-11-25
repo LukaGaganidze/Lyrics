@@ -5,8 +5,8 @@ import { TokenForHttpRequstesService } from '../token-for-http-requstes.service'
 
 import { GetArtistBySearchType } from '../apiTypes/artists/artists-types';
 
-import { environment } from 'src/env/environment';
-import { Observable, Subscription, switchMap } from 'rxjs';
+import { environment } from 'src/enviroment/enviroment';
+import { Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

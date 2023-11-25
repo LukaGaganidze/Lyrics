@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { TokenForHttpRequstesService } from '../token-for-http-requstes.service';
-import { environment } from 'src/env/environment';
+import { environment } from 'src/enviroment/enviroment';
 
 import {
   GetArtistByIDType,

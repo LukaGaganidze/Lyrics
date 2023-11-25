@@ -1,7 +1,7 @@
 import { Injectable, OnDestroy } from '@angular/core';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from 'src/env/environment';
+import { environment } from 'src/enviroment/enviroment';
 import { map, Subscription, BehaviorSubject, Observable, of } from 'rxjs';
 import { TokenValidResponseType } from './apiTypes/token/token-types';
 
