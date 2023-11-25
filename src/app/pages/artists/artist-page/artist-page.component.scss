@@ -1,0 +1,157 @@
+@use "../../../../scss/abstracts" as a;
+@use "../../../../scss/base" as b;
+
+.artist-container {
+  width: b.$main-container-width;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 4rem;
+  cursor: default;
+  padding: 5rem 0;
+}
+
+.artist-img {
+  width: 100%;
+  height: auto;
+}
+
+.artist-name-box {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  & .artist-name {
+    font-size: 3rem;
+    display: block;
+    color: a.$color-secondary;
+    text-wrap: nowrap;
+  }
+  & .header-line {
+    display: block;
+    width: 100%;
+    height: 0.3rem;
+    background: linear-gradient(
+      to left,
+      rgba($color: a.$color-secondary-gradiant-dark, $alpha: 1),
+      rgba($color: a.$color-secondary-gradiant-light, $alpha: 1)
+    );
+    transform: translateY(0.4rem);
+  }
+}
+
+.info-box {
+  & .title-main-box {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.7rem;
+
+    & .info-title,
+    & .info-line {
+      display: block;
+      font-size: 1.5rem;
+    }
+
+    & .info-title {
+      color: a.$color-secondary;
+    }
+    & .info-line {
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(
+        to left,
+        rgba($color: a.$color-secondary-gradiant-dark, $alpha: 1),
+        rgba($color: a.$color-secondary-gradiant-light, $alpha: 1)
+      );
+      transform: translateY(4px);
+    }
+  }
+}
+.genres-box,
+.popularity-box,
+.spotify-box {
+  margin-bottom: 1.5rem;
+}
+
+// genres
+.genres-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  & span {
+    background: linear-gradient(
+      to left,
+      rgba($color: a.$color-secondary-gradiant-dark, $alpha: 1),
+      rgba($color: a.$color-secondary-gradiant-light, $alpha: 1)
+    );
+    width: max-content;
+    padding: 0.2rem 1rem;
+    border-radius: 0.4rem;
+    color: a.$color-primary-black-light;
+    cursor: default;
+  }
+}
+
+.spotify-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  color: a.$color-secondary;
+}
+
+.spotify-svg-box {
+  display: block;
+  width: 4rem;
+  & svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    fill: rgba($color: a.$color-secondary, $alpha: 0.8);
+    transition: all 0.25s ease;
+  }
+
+  &:hover {
+    & svg {
+      fill: rgba($color: a.$color-secondary, $alpha: 1);
+      transform: scale(1.05);
+    }
+  }
+}
+.popularity-box {
+  overflow: hidden;
+  border-radius: 0.2rem;
+  width: 90%;
+  border: solid a.$color-primary-black 1px;
+}
+.popularity-indicator {
+  display: block;
+  width: 41.9rem;
+  height: 1.5rem;
+  background: linear-gradient(
+    to left,
+    rgba($color: #d1ff85, $alpha: 1),
+    rgba($color: a.$color-secondary-gradiant-dark, $alpha: 1)
+  );
+}
+
+.inner-indicator {
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  background-clip: border-box;
+
+  display: grid;
+  grid-template-columns: repeat(59, 1fr);
+  column-gap: 0.5fr;
+  padding-left: 0.5rem;
+
+  & div {
+    width: 0.3rem;
+    background-color: a.$color-primary-black;
+  }
+}

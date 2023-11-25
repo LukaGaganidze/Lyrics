@@ -1,0 +1,22 @@
+<ng-container *ngIf="artistData$ | async as artistdata">
+  <div class="structural-container">
+    <div class="main-container">
+      <app-artist-item
+        [placement]="1"
+        [popularArtistData]="artistdata[0]"
+      ></app-artist-item>
+      <app-artist-item
+        [placement]="2"
+        [popularArtistData]="artistdata[1]"
+      ></app-artist-item>
+      <app-artist-item
+        [placement]="3"
+        [popularArtistData]="artistdata[2]"
+      ></app-artist-item>
+    </div>
+
+    <app-gallery [artists]="artistdata"></app-gallery>
+
+    <app-list [artists]="artistdata"></app-list>
+  </div>
+</ng-container>

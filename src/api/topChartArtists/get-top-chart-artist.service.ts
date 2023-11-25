@@ -1,34 +1,38 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, shareReplay, switchMap, toArray } from 'rxjs/operators';
-import { forkJoin, Observable } from 'rxjs';
+import { map, shareReplay, switchMap, tap, toArray } from 'rxjs/operators';
+import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 
 import { SearchArtistsService } from '../artists/search-artists.service';
 import { TopArtistsResponse } from '../apiTypes/topChartArtist/top-chart-artist-types';
 import { ModifiedArtist } from '../apiTypes/topChartArtist/top-chart-artist-types';
-import { GetArtistBySearchType } from '../apiTypes/artists/artists-types';
 import { topChartArtistDataType } from '../apiTypes/topChartArtists/get-top-chart-artist-types';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GetTopChartArtistService {
+  // Behaviurs subject for state management
+  private artistsChartBSub$ = new BehaviorSubject<topChartArtistDataType[]>([]);
+  artistsChart$: Observable<topChartArtistDataType[]> =
+    this.artistsChartBSub$.asObservable();
+
   constructor(
     private http: HttpClient,
     private searchArtistSer: SearchArtistsService
   ) {}
 
   // აქ ვიყენებ last.fm API-ს იმისთვის, რომ წამოვიღო პოპულალაური მომღერლბის სახელები და შემდეგ SPORTIFY API ს თან გავაკეთო ინტეგრაცია.
-
   // მომღერლის სახელი last.fm --> SPORTIFY API თითოეულ სახელზე API ქოლი
 
   getTopArtists(): Observable<topChartArtistDataType[]> {
     return this.http
       .get<TopArtistsResponse>(
-        'https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&limit=5&api_key=6d692582e285f3020c9bc6b31ca38e09&format=json'
+        'https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&limit=25&api_key=6d692582e285f3020c9bc6b31ca38e09&format=json'
       )
       .pipe(
         map((resp) => {
+          console.log(resp);
           const artists = resp.artists.artist;
           const modifiedArtistData: ModifiedArtist[] = artists.map(
             (artist) => ({
@@ -36,7 +40,6 @@ export class GetTopChartArtistService {
               listeners: artist.listeners,
             })
           );
-
           // Use forkJoin to concurrently fetch data for all artists
           return forkJoin(
             modifiedArtistData.map((artist) =>
@@ -44,11 +47,11 @@ export class GetTopChartArtistService {
             )
           );
         }),
-        shareReplay(),
         switchMap((responses) => responses),
         toArray(),
         map((resp) => {
-          return resp[0].map((artist) => {
+          console.log(resp);
+          const artistData = resp[0].map((artist) => {
             return {
               id: artist.artists.items[0].id,
               name: artist.artists.items[0].name,
@@ -58,6 +61,8 @@ export class GetTopChartArtistService {
               genre: artist.artists.items[0].genres[0],
             };
           });
+          this.artistsChartBSub$.next(artistData);
+          return artistData;
         }),
         shareReplay()
       );

@@ -1,0 +1,20 @@
+<div class="swiper-container">
+  <swiper-container
+    class="mySwiper"
+    effect="coverflow"
+    grab-cursor="true"
+    slides-per-view="auto"
+    coverflow-effect-rotate="20"
+    coverflow-effect-stretch="0"
+    coverflow-effect-depth="100"
+    coverflow-effect-modifier="1"
+    coverflow-effect-slide-shadows="false"
+    loop="true"
+    autoplay-delay="2500"
+    class="swiper-container-inner"
+  >
+    <swiper-slide *ngFor="let artist of artists" class="wiper-slide">
+      <img class="slider-image" src="{{ artist.image }}" />
+    </swiper-slide>
+  </swiper-container>
+</div>
