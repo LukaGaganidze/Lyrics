@@ -2,6 +2,7 @@
 
 
 /src/enviroment/enviroment.ts
+
 # Compiled output
 /dist
 /tmp
@@ -42,3 +43,6 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+
+

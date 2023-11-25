@@ -67,3 +67,12 @@ export interface GetArtistBySearchType {
     total: number;
   };
 }
+
+export interface ModifiedArtistId {
+  spotify: string;
+  followers: number;
+  genres: string[];
+  image: { height: number; url: string; width: number };
+  name: string;
+  popularity: number;
+}

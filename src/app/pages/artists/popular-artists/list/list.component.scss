@@ -1,0 +1,99 @@
+@use "../../../../../scss/abstracts" as a;
+@use "../../../../../scss/base" as b;
+
+.artist {
+  display: block;
+  font-size: 1.8rem;
+  position: relative;
+  padding: .5rem 0;
+  border-bottom: solid   rgba($color: a.$color-secondary, $alpha: .3) 1px;
+  transition: border-bottom .2s ease;
+}
+.artist:hover,
+.artist:active {
+   border-bottom: solid   rgba($color: a.$color-secondary, $alpha: .6) 1px;
+ }
+
+.artist::after {
+  content: '';
+  transition: opacity .2s ease;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  background: linear-gradient(to right,
+    rgba($color: a.$color-secondary-gradiant-light, $alpha: .1),
+    rgba($color: a.$color-secondary-gradiant-dark, $alpha: .1));
+}
+.artist:hover::after,
+.artist:active::after
+{
+  opacity: 1;
+}
+
+
+.artist:link,
+.artist:visited {
+  text-decoration: none;
+  color: a.$regular-text-color;
+}
+
+.inner-container {
+  display: flex;
+  gap: 4rem;
+  width: 80rem;
+  margin: 0 auto;
+
+}
+
+.chart-number {
+  color: a.$color-secondary;
+}
+
+.chart-placement{
+}
+
+.artist-name:link,
+.artist-name:visited {
+  text-decoration: none;
+  color: a.$regular-text-color;
+}
+.artist-name:hover,
+.artist-name:active {
+  color: a.$color-secondary;
+  text-decoration: underline;
+}
+
+
+.on-spotify {
+  display: flex;
+  align-content: center;
+  gap: .5rem;
+}
+
+.on-spotify:link,
+.on-spotify:visited {
+  text-decoration: none;
+  color: a.$regular-text-color;
+}
+
+.on-spotify:hover,
+.on-spotify:active {
+  text-decoration: underline;
+  color: a.$color-secondary;
+
+  & .spot-svg {
+    fill: a.$color-secondary;
+  }
+}
+
+
+.spot-svg {
+  fill: a.$regular-text-color;
+  width: 3rem;
+  height: 3rem;
+}
+
