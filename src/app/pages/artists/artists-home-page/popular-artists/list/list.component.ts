@@ -1,6 +1,6 @@
 import { Component, Input, Output } from '@angular/core';
 
-import { topChartArtistDataType } from '../../../../../api/apiTypes/topChartArtists/get-top-chart-artist-types';
+import { topChartArtistDataType } from 'src/api/apiTypes/topChartArtists/get-top-chart-artist-types';
 
 @Component({
   selector: 'app-list',

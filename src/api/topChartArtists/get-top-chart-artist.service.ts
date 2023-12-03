@@ -1,12 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { map, shareReplay, switchMap, tap, toArray } from 'rxjs/operators';
+import { map, shareReplay, switchMap, toArray } from 'rxjs/operators';
 import { BehaviorSubject, forkJoin, Observable } from 'rxjs';
 
 import { SearchArtistsService } from '../artists/search-artists.service';
 import { TopArtistsResponse } from '../apiTypes/topChartArtist/top-chart-artist-types';
 import { ModifiedArtist } from '../apiTypes/topChartArtist/top-chart-artist-types';
 import { topChartArtistDataType } from '../apiTypes/topChartArtists/get-top-chart-artist-types';
+
+import { environment } from 'src/enviroment/enviroment';
 
 @Injectable({
   providedIn: 'root',
@@ -28,11 +30,10 @@ export class GetTopChartArtistService {
   getTopArtists(): Observable<topChartArtistDataType[]> {
     return this.http
       .get<TopArtistsResponse>(
-        'https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&limit=25&api_key=6d692582e285f3020c9bc6b31ca38e09&format=json'
+        `${environment.apiUrl_lastFM}?method=chart.gettopartists&limit=25&api_key=${environment.API_KEY_lastFM}&format=${environment.Format_lastFM}`
       )
       .pipe(
         map((resp) => {
-          console.log(resp);
           const artists = resp.artists.artist;
           const modifiedArtistData: ModifiedArtist[] = artists.map(
             (artist) => ({

@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 
-import { ActivatedRoute } from '@angular/router';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -13,14 +11,11 @@ export class ProgressBarService {
   private currentRouteBSub$ = new BehaviorSubject('');
   currentRoute$ = this.currentRouteBSub$.asObservable();
 
-  constructor(private route: ActivatedRoute) {}
+  constructor() {}
 
   onStartProgressBar(route: string) {
     const currentRouteVal = this.currentRouteBSub$.getValue();
     this.currentRouteBSub$.next(route);
-
-    console.log(route);
-    console.log(currentRouteVal);
 
     if (currentRouteVal === route) {
       this.progressBarBSub$.next(0);

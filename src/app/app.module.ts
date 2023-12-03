@@ -13,10 +13,10 @@ import { ValidationTokenInterceptorService } from './services/interceptors/valid
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SearchModule } from './pages/search/search-modules/search.module';
 import { AlbumsModule } from './pages/albums/albums-modules/albums.module';
-import { TracksComponent } from './pages/tracks/tracks.component';
+import { TracksModule } from './pages/tracks/tracks-module/tracks.module';
 
 @NgModule({
-  declarations: [AppComponent, TracksComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -28,6 +28,7 @@ import { TracksComponent } from './pages/tracks/tracks.component';
     SharedModule,
     SearchModule,
     AlbumsModule,
+    TracksModule,
   ],
   providers: [
     {
