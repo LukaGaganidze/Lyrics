@@ -2,16 +2,16 @@ import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ProgressBarService } from 'src/app/services/progress-bar/progress-bar.service';
 
 @Component({
-  selector: 'app-artists',
-  templateUrl: './artists.component.html',
-  styleUrls: ['./artists.component.scss'],
+  selector: 'app-albums',
+  templateUrl: './albums.component.html',
+  styleUrls: ['./albums.component.scss'],
 })
-export class ArtistsComponent implements AfterViewInit, OnDestroy, OnInit {
+export class AlbumsComponent implements AfterViewInit, OnDestroy, OnInit {
   private timer: any;
   constructor(private loadingBarSer: ProgressBarService) {}
 
   ngOnInit(): void {
-    this.loadingBarSer.onStartProgressBar('artists');
+    this.loadingBarSer.onStartProgressBar('albums');
   }
   ngAfterViewInit(): void {
     this.loadingBarSer.onFinishProgressBar();

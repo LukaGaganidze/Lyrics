@@ -3,20 +3,20 @@
 
 .artist {
   display: block;
-  font-size: 1.8rem;
   position: relative;
-  padding: .5rem 0;
-  border-bottom: solid   rgba($color: a.$color-secondary, $alpha: .3) 1px;
-  transition: border-bottom .2s ease;
+  padding: 0.5rem 0;
+  border-bottom: solid rgba($color: a.$color-secondary, $alpha: 0.3) 1px;
+  transition: border-bottom 0.2s ease;
+  margin-bottom: 0;
 }
 .artist:hover,
 .artist:active {
-   border-bottom: solid   rgba($color: a.$color-secondary, $alpha: .6) 1px;
- }
+  border-bottom: solid rgba($color: a.$color-secondary, $alpha: 0.6) 1px;
+}
 
 .artist::after {
-  content: '';
-  transition: opacity .2s ease;
+  content: "";
+  transition: opacity 0.2s ease;
   opacity: 0;
   position: absolute;
   top: 0;
@@ -24,16 +24,16 @@
   height: 100%;
   width: 100%;
   z-index: -1;
-  background: linear-gradient(to right,
-    rgba($color: a.$color-secondary-gradiant-light, $alpha: .1),
-    rgba($color: a.$color-secondary-gradiant-dark, $alpha: .1));
+  background: linear-gradient(
+    to right,
+    rgba($color: a.$color-secondary-gradiant-light, $alpha: 0.1),
+    rgba($color: a.$color-secondary-gradiant-dark, $alpha: 0.1)
+  );
 }
 .artist:hover::after,
-.artist:active::after
-{
+.artist:active::after {
   opacity: 1;
 }
-
 
 .artist:link,
 .artist:visited {
@@ -43,17 +43,17 @@
 
 .inner-container {
   display: flex;
+  align-items: center;
   gap: 4rem;
   width: 80rem;
   margin: 0 auto;
-
 }
 
 .chart-number {
   color: a.$color-secondary;
 }
 
-.chart-placement{
+.chart-placement {
 }
 
 .artist-name:link,
@@ -67,11 +67,10 @@
   text-decoration: underline;
 }
 
-
 .on-spotify {
   display: flex;
-  align-content: center;
-  gap: .5rem;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .on-spotify:link,
@@ -90,10 +89,23 @@
   }
 }
 
-
 .spot-svg {
   fill: a.$regular-text-color;
   width: 3rem;
   height: 3rem;
 }
 
+.load-more {
+  display: block;
+  position: relative;
+  padding: 1rem 0;
+  border-bottom: solid rgba($color: a.$color-secondary, $alpha: 0.3) 1px;
+  transition: border-bottom 0.2s ease;
+  cursor: pointer;
+  text-align: center;
+}
+
+.load-more:hover,
+.load-more:active {
+  color: a.$color-secondary;
+}

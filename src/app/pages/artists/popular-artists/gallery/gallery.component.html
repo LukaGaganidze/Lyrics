@@ -10,11 +10,11 @@
     coverflow-effect-modifier="1"
     coverflow-effect-slide-shadows="false"
     loop="true"
-    autoplay-delay="2500"
     class="swiper-container-inner"
+    autoplay-delay="2500"
   >
     <swiper-slide *ngFor="let artist of artists" class="wiper-slide">
-      <img class="slider-image" src="{{ artist.image }}" />
+      <app-gallery-item [artist]="artist"></app-gallery-item>
     </swiper-slide>
   </swiper-container>
 </div>

@@ -1,22 +1,30 @@
 <ng-container *ngIf="artistData$ | async as artistdata">
   <div class="structural-container">
-    <div class="main-container">
-      <app-artist-item
-        [placement]="1"
-        [popularArtistData]="artistdata[0]"
-      ></app-artist-item>
-      <app-artist-item
-        [placement]="2"
-        [popularArtistData]="artistdata[1]"
-      ></app-artist-item>
-      <app-artist-item
-        [placement]="3"
-        [popularArtistData]="artistdata[2]"
-      ></app-artist-item>
+    <div class="top-3">
+      <h2 class="mat-headline-1">#CurrentTop3</h2>
+      <div class="main-container">
+        <app-artist-item
+          [placement]="1"
+          [popularArtistData]="artistdata[0]"
+        ></app-artist-item>
+        <app-artist-item
+          [placement]="2"
+          [popularArtistData]="artistdata[1]"
+        ></app-artist-item>
+        <app-artist-item
+          [placement]="3"
+          [popularArtistData]="artistdata[2]"
+        ></app-artist-item>
+      </div>
     </div>
 
-    <app-gallery [artists]="artistdata"></app-gallery>
+    <div class="gallery">
+      <app-gallery [artists]="artistdata"></app-gallery>
+    </div>
 
-    <app-list [artists]="artistdata"></app-list>
+    <div class="currently-hot">
+      <h2 class="mat-headline-1">#HotRightNow</h2>
+      <app-list [artists]="artistdata"></app-list>
+    </div>
   </div>
 </ng-container>

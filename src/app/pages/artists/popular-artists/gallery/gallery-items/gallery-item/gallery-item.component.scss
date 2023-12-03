@@ -1,0 +1,41 @@
+@use "../../../../../../../scss/abstracts" as a;
+@use "../../../../../../../scss/base" as b;
+
+.gallery-link-item {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.slider-image {
+  display: block;
+  width: 100%;
+  filter: grayscale(1);
+  cursor: pointer;
+  transition: filter 0.25s ease-in;
+}
+.slider-image.active {
+  filter: grayscale(0);
+}
+
+.gallery-link-item:link,
+.gallery-link-item:visited {
+  & .artist-name {
+    color: a.$color-secondary;
+  }
+}
+
+.artist-name {
+  transition: all 0.25s ease;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+  z-index: 1;
+  text-align: center;
+}
+.artist-name.active {
+  opacity: 0.5;
+}

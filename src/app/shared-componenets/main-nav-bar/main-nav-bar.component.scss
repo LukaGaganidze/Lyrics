@@ -4,6 +4,7 @@
 .container {
   border-bottom: a.$color-secondary solid 1px;
   padding: 0.5rem 0;
+  position: relative;
 }
 
 .nav-bar {
@@ -103,4 +104,10 @@
   & span {
     color: a.$color-primary-black;
   }
+}
+
+// progress-bar
+.progress-bar {
+  position: absolute;
+  top: 0;
 }

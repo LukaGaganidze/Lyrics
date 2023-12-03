@@ -1,0 +1,15 @@
+<a
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+  class="gallery-link-item"
+  [routerLink]="['/artists', artist.id]"
+>
+  <!-- <span class="artist-name" [ngClass]="{ active: activeGalleryItem }">{{
+    artist.name
+  }}</span> -->
+  <img
+    class="slider-image"
+    src="{{ artist.image }}"
+    [ngClass]="{ active: activeGalleryItem }"
+  />
+</a>

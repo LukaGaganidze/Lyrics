@@ -4,26 +4,28 @@
     <div class="content-box">
       <!-- name -->
       <div class="artist-name-box">
-        <span class="artist-name">{{ artist.name }}</span>
+        <span class="artist-name mat-headline-3">{{ artist.name }}</span>
         <span class="header-line"></span>
       </div>
 
       <!-- genres -->
       <div class="info-box info-box-genres">
         <div class="title-main-box">
-          <span class="info-title">Genres</span>
+          <span class="info-title mat-headline-5">Genres</span>
           <span class="info-line"></span>
         </div>
 
         <div class="genres-box">
-          <span *ngFor="let genre of artist.genres">{{ genre }}</span>
+          <span class="mat-h4" *ngFor="let genre of artist.genres">{{
+            genre
+          }}</span>
         </div>
       </div>
 
       <!-- popularity -->
       <div class="info-box info-box-popularity">
         <div class="title-main-box">
-          <span class="info-title">Popularity</span>
+          <span class="info-title mat-headline-5">Popularity</span>
           <span class="info-line"></span>
         </div>
 
@@ -100,12 +102,12 @@
       <!-- spotify -->
       <div class="info-box info-box-spotify">
         <div class="title-main-box">
-          <span class="info-title">Spotify</span>
+          <span class="info-title mat-headline-5">Spotify</span>
           <span class="info-line"></span>
         </div>
 
         <div class="spotify-box">
-          <span>
+          <span class="mat-h4">
             <span> {{ artist.followers.toLocaleString() }} </span>
             <span> followers </span>
           </span>

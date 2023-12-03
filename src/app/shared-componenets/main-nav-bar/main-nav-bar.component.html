@@ -1,18 +1,47 @@
 <div class="container">
+  <ng-container *ngIf="progressVal$ | async as progress">
+    <mat-progress-bar
+      class="progress-bar"
+      mode="determinate"
+      color="accent"
+      value="{{ progress }}"
+    ></mat-progress-bar>
+  </ng-container>
+
   <div class="nav-bar">
     <a href="#" class="nav-bar__img-box">
       <img src="../../../assets/logos/logo-green.png" />
     </a>
     <div class="nav-bar__nav">
-      <a routerLink="" class="link nav-links">Tracks</a>
-      <a routerLink="/artists" class="link nav-links">Artists</a>
-      <a routerLink="#" class="link nav-links">Albums</a>
-      <a routerLink="#" class="link nav-links">Search</a>
+      <a
+        routerLink="/tracks"
+        class="link nav-links mat-h3"
+        (click)="onTopLoader('tracks')"
+        >Tracks</a
+      >
+      <a
+        routerLink="/artists"
+        class="link nav-links mat-h3"
+        (click)="onTopLoader('artists')"
+        >Artists</a
+      >
+      <a
+        routerLink="/albums"
+        class="link nav-links mat-h3"
+        (click)="onTopLoader('albums')"
+        >Albums</a
+      >
+      <a
+        routerLink="/search"
+        class="link nav-links mat-h3"
+        (click)="onTopLoader('search')"
+        >Search</a
+      >
     </div>
     <div>
       <div class="sign-box">
-        <span class="sign-in link">Sign In</span>
-        <span class="sign-up">
+        <span class="sign-in link mat-h3">Sign In</span>
+        <span class="sign-up mat-h3">
           <span>Sign Up</span>
         </span>
       </div>

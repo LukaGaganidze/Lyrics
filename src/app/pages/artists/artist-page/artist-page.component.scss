@@ -24,10 +24,10 @@
   margin-bottom: 1.5rem;
 
   & .artist-name {
-    font-size: 3rem;
     display: block;
     color: a.$color-secondary;
     text-wrap: nowrap;
+    margin-bottom: 0;
   }
   & .header-line {
     display: block;
@@ -52,11 +52,11 @@
     & .info-title,
     & .info-line {
       display: block;
-      font-size: 1.5rem;
     }
 
     & .info-title {
       color: a.$color-secondary;
+      margin-bottom: 0;
     }
     & .info-line {
       width: 100%;
@@ -100,7 +100,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 1.5rem;
   color: a.$color-secondary;
 }
 

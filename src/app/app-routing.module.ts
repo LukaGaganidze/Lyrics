@@ -11,8 +11,29 @@ const routes: Routes = [
   {
     path: 'artists',
     loadChildren: () =>
-      import('./pages/artists/artist-routing.module').then(
+      import('./pages/artists/artists-module/artist-routing.module').then(
         (mod) => mod.ArtistsRoutingModule
+      ),
+  },
+  {
+    path: 'search',
+    loadChildren: () =>
+      import('./pages/search/search-modules/search-routing.module').then(
+        (mod) => mod.SearchRoutingModule
+      ),
+  },
+  {
+    path: 'albums',
+    loadChildren: () =>
+      import('./pages/albums/albums-modules/albums-routing.module').then(
+        (mod) => mod.AlbumsRoutingModule
+      ),
+  },
+  {
+    path: 'tracks',
+    loadChildren: () =>
+      import('./pages/tracks/tracks-module/tracks-routing.module').then(
+        (mod) => mod.TracksRoutingModule
       ),
   },
 ];
