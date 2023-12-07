@@ -1,0 +1,20 @@
+<ng-container *ngIf="topChartAlbumsData$ | async as albumData">
+  <!-- hero section -->
+  <div class="section-item">
+    <h2 class="heading mat-headline-1">#CurrentlyHot</h2>
+    <albums-chart-hero [albumsData]="albumData.slice(0, 6)"></albums-chart-hero>
+  </div>
+
+  <!-- album list sec -->
+  <div class="section-item">
+    <h2 class="heading mat-headline-1">#OurTop100</h2>
+    <app-list-of-albums [arrayOfArtists]="albumData"></app-list-of-albums>
+  </div>
+</ng-container>
+
+<!-- favorite on platform sec -->
+<!-- album list sec -->
+<div class="section-item">
+  <h2 class="heading mat-headline-1">#PlatformFavorites</h2>
+  <app-favorite-on-platform></app-favorite-on-platform>
+</div>

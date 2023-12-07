@@ -1,0 +1,75 @@
+@use "../../../../../scss/abstracts" as a;
+@use "../../../../../scss/base" as b;
+
+.list-container {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  justify-items: center;
+  max-width: b.$main-container-width;
+  margin: 0 auto;
+  row-gap: 3rem;
+}
+
+.item {
+  width: 11rem;
+  border-bottom: solid transparent 3px;
+
+  & img {
+    width: 100%;
+    height: auto;
+    filter: grayscale(1);
+  }
+}
+.item:link,
+.item:visited {
+  color: a.$regular-text-color;
+  text-decoration: none;
+}
+
+.info-box {
+  & span:first-child {
+    color: a.$text-color-non-focuseed;
+  }
+  margin-bottom: 0.4rem;
+}
+
+.album-box {
+  height: 4.5rem;
+}
+
+// hover effect
+.item:hover,
+.item:active {
+  border-bottom: solid a.$color-secondary 3px;
+
+  & img {
+    filter: grayscale(0);
+  }
+
+  & .info-box {
+    & span:last-child {
+      color: a.$color-secondary;
+    }
+  }
+}
+
+.show-more-box {
+  width: max-content;
+  margin: 0 auto;
+  margin-top: 2rem;
+  & button {
+    border: solid a.$color-secondary 2px;
+    border-bottom: solid transparent 2px;
+    border-right: solid transparent 2px;
+    padding: 0.5rem 1rem;
+    color: a.$color-secondary;
+    background-color: transparent;
+    cursor: pointer;
+
+    &:hover,
+    &:active {
+      border-bottom: solid a.$color-secondary 2px;
+      border-right: solid a.$color-secondary 2px;
+    }
+  }
+}

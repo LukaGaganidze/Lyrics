@@ -39,6 +39,17 @@ type PageInfo = {
 };
 
 export type GeoTracksResponse = {
-  '@attr': PageInfo;
-  track: Track[];
+  tracks: {
+    '@attr': PageInfo;
+    track: Track[];
+  };
+};
+
+export type filteredGeoTracks = {
+  track_Id: String;
+  img_large: String;
+  img_sml: String;
+  artist: String;
+  song: String;
+  spot_link: string;
 };

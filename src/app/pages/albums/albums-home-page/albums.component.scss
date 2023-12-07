@@ -1,0 +1,16 @@
+@use "../../../../scss/abstracts" as a;
+@use "../../../../scss/base" as b;
+
+.heading {
+  text-align: center;
+  color: a.$color-secondary;
+  letter-spacing: 7px;
+  margin-bottom: 4rem;
+}
+
+.section-item {
+  margin-bottom: 5rem;
+}
+.section-item:first-child {
+  margin-top: 5rem;
+}

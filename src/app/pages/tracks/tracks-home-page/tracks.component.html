@@ -1,1 +1,19 @@
-<p>tracks works!</p>
+<ng-container *ngIf="topTracks$ | async as tracks">
+  <div class="main-container">
+    <div class="hero">
+      <h2 class="mat-headline-1">#PopularWorldwide</h2>
+      <tracks-hero [heroTracksData]="tracks"></tracks-hero>
+    </div>
+
+    <div class="list-of-popular-tracks">
+      <app-list-of-popular-tracks
+        [listTracksData]="tracks"
+      ></app-list-of-popular-tracks>
+    </div>
+
+    <div *ngIf="geoTracks$ | async as geoTracks" class="geo-tracks">
+      <h2 class="mat-headline-1">#PopularInGeorgia</h2>
+      <app-geo-tracks [tracksData]="geoTracks"></app-geo-tracks>
+    </div>
+  </div>
+</ng-container>

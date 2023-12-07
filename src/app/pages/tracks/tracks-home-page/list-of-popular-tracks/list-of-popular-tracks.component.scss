@@ -1,0 +1,110 @@
+@use "../../../../../scss/abstracts" as a;
+@use "../../../../../scss/base" as b;
+// main container
+.container {
+  width: b.$main-container-width;
+  margin: 0 auto;
+}
+
+.item-container {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0;
+  margin-bottom: 1rem;
+  border-bottom: solid a.$color-secondary 2px;
+}
+
+.item-container:hover,
+.item-container:active {
+  background-color: rgba($color: a.$color-secondary, $alpha: 0.1);
+}
+
+// item
+.list-item {
+  display: flex;
+  width: 100%;
+}
+
+.list-item:link,
+.list-item:visited {
+  text-decoration: none;
+  color: a.$regular-text-color;
+  cursor: pointer;
+}
+
+// item inner content
+.track-item-content {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+}
+
+// first box image and placemenet index
+.img-n-place {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  & img {
+    height: 5rem;
+    width: auto;
+  }
+}
+
+// placemenet box
+.placemenet {
+  & span {
+    font-size: 1.2rem;
+    font-family: Rubik Bubbles;
+    color: a.$color-secondary;
+  }
+}
+
+// artist description and artist tracks
+.artist-and-track-desc {
+  & span:first-child {
+    color: a.$text-color-non-focuseed;
+  }
+  & span:last-child {
+    letter-spacing: 2px;
+    color: a.$color-secondary;
+  }
+}
+
+// spotify link
+.spotify-link:link,
+.spotify-link:visited {
+  display: block;
+  width: 3rem;
+  height: 3rem;
+  margin-right: 1rem;
+  transition: transform 0.35s ease;
+  & svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    fill: a.$color-secondary;
+  }
+}
+
+// spotify link
+.spotify-link:hover,
+.spotify-link:active {
+  transform: scale(1.2);
+}
+
+.controll-content-box {
+  padding: 1rem 0;
+  text-align: center;
+
+  & button {
+    border: none;
+    background-color: transparent;
+    color: a.$color-secondary;
+    cursor: pointer;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

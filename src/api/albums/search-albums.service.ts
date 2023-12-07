@@ -5,7 +5,7 @@ import { TokenForHttpRequstesService } from '../token-for-http-requstes.service'
 
 import { GetAlbumBySearchType } from '../apiTypes/albums/albums-types';
 
-import { environment } from 'src/env/environment';
+import { environment } from 'src/enviroment/enviroment';
 import { Observable, switchMap } from 'rxjs';
 @Injectable({
   providedIn: 'root',

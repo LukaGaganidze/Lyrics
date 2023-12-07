@@ -1,0 +1,93 @@
+<ng-container *ngIf="albumsData">
+  <div class="hero-container">
+    <!-- top box -->
+    <div class="top-box">
+      <!-- item 1  -->
+      <a href="#" class="item-1 item">
+        <!-- image -->
+        <img src="{{ albumsData[0].image[3]['#text'] }}" />
+
+        <!-- text -->
+        <div class="album-text">
+          <div class="artist-n-album">
+            <h3>{{ albumsData[0].artist }}</h3>
+            <h3>{{ albumsData[0].album_name }}</h3>
+          </div>
+        </div>
+      </a>
+
+      <!-- item 2  -->
+      <a href="#" class="item-2 item">
+        <!-- image -->
+        <img src="{{ albumsData[1].image[3]['#text'] }}" />
+
+        <!-- text -->
+        <div class="album-text">
+          <div class="artist-n-album">
+            <h3>{{ albumsData[1].artist }}</h3>
+            <h3>{{ albumsData[1].album_name }}</h3>
+          </div>
+        </div>
+      </a>
+
+      <!-- item 3  -->
+      <a href="#" class="item-3 item">
+        <!-- image -->
+        <img src="{{ albumsData[2].image[3]['#text'] }}" />
+
+        <!-- text -->
+        <div class="album-text">
+          <div class="artist-n-album">
+            <h3>{{ albumsData[2].artist }}</h3>
+            <h3>{{ albumsData[2].album_name }}</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <!-- bottom box -->
+    <div class="bottom-box">
+      <!-- item 4  -->
+      <a href="#" class="item-4 item">
+        <!-- image -->
+        <img src="{{ albumsData[3].image[3]['#text'] }}" />
+
+        <!-- text -->
+        <div class="album-text">
+          <div class="artist-n-album">
+            <h3>{{ albumsData[3].artist }}</h3>
+            <h3>{{ albumsData[3].album_name }}</h3>
+          </div>
+        </div>
+      </a>
+
+      <!-- item 5  -->
+      <a href="#" class="item-5 item">
+        <!-- image -->
+        <img src="{{ albumsData[4].image[3]['#text'] }}" />
+
+        <!-- text -->
+        <div class="album-text">
+          <div class="artist-n-album">
+            <h3>{{ albumsData[4].artist }}</h3>
+            <h3>{{ albumsData[4].album_name }}</h3>
+          </div>
+        </div>
+      </a>
+
+      <!-- item 6  -->
+      <a href="#" class="item-6 item">
+        <!-- image -->
+        <img src="{{ albumsData[5].image[3]['#text'] }}" />
+
+        <!-- text -->
+        <div class="album-text">
+          <div class="artist-n-album">
+            <h3>{{ albumsData[5].artist }}</h3>
+            <h3>{{ albumsData[5].album_name }}</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</ng-container>

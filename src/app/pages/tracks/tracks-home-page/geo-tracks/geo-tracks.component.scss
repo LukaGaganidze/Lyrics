@@ -1,0 +1,86 @@
+@use "../../../../../scss/abstracts" as a;
+@use "../../../../../scss/base" as b;
+
+.container {
+  width: b.$main-container-width;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr 0.8fr;
+  column-gap: 5rem;
+
+  & img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.item:link,
+.item:visited {
+  color: a.$color-secondary;
+  text-decoration: none;
+}
+
+.item__content {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem 1rem;
+  width: 90%;
+  margin: 0 auto;
+  border: solid a.$color-secondary 3px;
+  border-bottom: none;
+
+  background-color: a.$color-primary-black;
+
+  & svg {
+    fill: a.$color-secondary;
+    width: 3rem;
+    height: 3rem;
+    transition: transform 0.35s ease;
+    display: block;
+    margin-left: 1rem;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
+
+.content-info {
+  display: flex;
+  flex-direction: column;
+}
+
+// hover affects
+.item {
+  & img {
+    filter: grayscale(1);
+    transition: all 0.3s ease-in-out;
+  }
+
+  .item__content {
+    background-color: rgba($color: a.$color-primary-black-light, $alpha: 0.7);
+    transition: all 0.3s ease-in-out;
+  }
+}
+.item:hover,
+.item:active {
+  & img {
+    filter: grayscale(0);
+  }
+
+  .item__content {
+    background-color: rgba($color: a.$color-primary-black, $alpha: 1);
+  }
+}
+
+// item content left or right
+
+.item__content__left {
+  transform: translate(-10%, -50%);
+  border-right: none;
+}
+
+.item__content__right {
+  transform: translate(10%, -50%);
+  border-left: none;
+}

@@ -1,0 +1,43 @@
+<ng-container *ngIf="arrayOfArtists as albums">
+  <div class="list-container">
+    <a
+      href="#"
+      *ngFor="let album of albums.slice(0, controlDisplay)"
+      class="item"
+    >
+      <img
+        src="{{ album.image[2]['#text'] }}"
+        alt="{{ album.album_name + 'album image' }}"
+      />
+
+      <div class="text-content">
+        <div class="chart-box info-box">
+          <span>Placement: </span>
+          <span>#{{ album.rank }}</span>
+        </div>
+
+        <div class="artist-album-box">
+          <!-- artist -->
+          <div class="artist-box info-box">
+            <span>Artist: </span>
+            <span>{{ album.artist }}</span>
+          </div>
+
+          <!-- album -->
+          <div class="album-box info-box">
+            <span>Album: </span>
+            <span>{{ album.album_name }}</span>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+  <div class="show-more-box">
+    <button class="mat-subtitle-1" *ngIf="showMoreButton" (click)="showMore()">
+      laod more
+    </button>
+  </div>
+</ng-container>
+<!-- rank
+album_name
+artist -->

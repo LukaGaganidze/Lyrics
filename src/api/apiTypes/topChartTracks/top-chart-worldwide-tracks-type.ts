@@ -34,7 +34,18 @@ type PageInfo = {
   total: string;
 };
 
-export type WorldvideTracksResponse = {
-  '@attr': PageInfo;
-  track: Track[];
+export type WorldvideTracks = {
+  tracks: {
+    '@attr': PageInfo;
+    track: Track[];
+  };
+};
+
+export type filteredWorldwideTracks = {
+  track_Id: String;
+  img_large: String;
+  img_sml: String;
+  artist: String;
+  song: String;
+  spot_link: string;
 };

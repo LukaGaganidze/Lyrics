@@ -6,7 +6,7 @@ import { TokenForHttpRequstesService } from '../token-for-http-requstes.service'
 import { environment } from 'src/enviroment/enviroment';
 
 import { SearchTrackType } from '../apiTypes/tracks/track-types';
-import { Observable, Subscription, switchMap } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlbumsComponent } from '../albums.component';
+import { AlbumsComponent } from '../albums-home-page/albums.component';
 
 const routes: Routes = [
   {

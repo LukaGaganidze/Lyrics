@@ -1,0 +1,85 @@
+@use "../../../../../scss/abstracts" as a;
+@use "../../../../../scss/base" as b;
+
+.hero {
+  width: b.$main-container-width;
+  margin: 0 auto;
+  display: grid;
+
+  grid-template-columns: 1fr 2.5fr 1fr;
+  grid-template-rows: 1fr;
+  column-gap: 3rem;
+
+  & a,
+  & a:link,
+  & a:visited {
+    display: block;
+
+    & img {
+      transition: filter 0.4s ease;
+      width: 100%;
+      height: auto;
+      filter: grayscale(1);
+    }
+  }
+  & a:hover,
+  & a:active {
+    & img {
+      filter: grayscale(0);
+    }
+  }
+}
+
+.sides {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.side-link-item:link,
+.side-link-item:visited {
+  text-decoration: none;
+  color: a.$regular-text-color;
+  border-bottom: solid a.$color-secondary 1px;
+}
+.side-link-item:hover,
+.side-link-item:active {
+  & .text-box-sides {
+    color: a.$color-secondary;
+  }
+}
+
+.text-box-sides {
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0 0.5rem 0;
+  transition: all 0.4s ease;
+}
+
+// main large image
+.main {
+  position: relative;
+  & img {
+    height: 100% !important;
+    width: auto;
+  }
+}
+
+.mian-linnk-text {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  & span {
+    padding: 0.4rem 1rem;
+    color: a.$color-primary-black;
+    width: max-content;
+    background-color: a.$color-secondary;
+
+    margin-bottom: 0;
+  }
+}
