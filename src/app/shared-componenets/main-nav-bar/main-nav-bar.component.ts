@@ -9,6 +9,10 @@ import { ProgressBarService } from 'src/app/services/progress-bar/progress-bar.s
   styleUrls: ['./main-nav-bar.component.scss'],
 })
 export class MainNavBarComponent implements OnInit {
+  // search drowpdown
+  searchDropdown = false;
+
+  // propgress bar
   progressVal$!: Observable<number>;
   constructor(private progressBarSer: ProgressBarService) {}
 
@@ -16,6 +20,9 @@ export class MainNavBarComponent implements OnInit {
     this.progressVal$ = this.progressBarSer.progressBar$;
   }
 
+  controlDrop(state: boolean) {
+    this.searchDropdown = state;
+  }
   onTopLoader(route: string) {
     this.progressBarSer.onStartProgressBar(route);
   }

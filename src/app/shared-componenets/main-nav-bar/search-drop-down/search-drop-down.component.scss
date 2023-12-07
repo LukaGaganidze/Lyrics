@@ -1,0 +1,62 @@
+@use "../../../../scss/abstracts" as a;
+@use "../../../../scss/base" as b;
+
+.outter-container {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.3s ease-in-out;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.dropdown {
+  width: max-content;
+  display: flex;
+  gap: 2rem;
+  padding: 1rem 2rem;
+  background-color: rgba(a.$color-primary-black, $alpha: 1);
+  border: solid a.$color-secondary 1px;
+  border-left: solid transparent 1px;
+  border-right: solid transparent 1px;
+  border-top: solid transparent 1px;
+
+  & a:link,
+  & a:visited {
+    text-decoration: none;
+    color: a.$regular-text-color;
+  }
+}
+
+.drop-link {
+  position: relative;
+  transition: all 0.35s ease-in-out;
+
+  &::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: a.$color-secondary;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+
+  &:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+
+  &:hover,
+  &:active {
+    color: a.$color-secondary !important;
+  }
+}
+
+.outter-container.active {
+  visibility: visible;
+  opacity: 1;
+}

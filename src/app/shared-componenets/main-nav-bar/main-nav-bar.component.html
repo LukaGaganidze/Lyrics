@@ -35,12 +35,15 @@
         >Albums</a
       >
       <a
-        routerLink="/search"
         routerLinkActive="active-link"
-        class="link nav-links mat-h3"
+        class="link nav-links mat-h3 search-nav"
         (click)="onTopLoader('search')"
-        >Search</a
+        (mouseenter)="controlDrop(true)"
+        (mouseleave)="controlDrop(false)"
       >
+        <span> Search </span>
+        <app-search-drop-down [active]="searchDropdown"></app-search-drop-down>
+      </a>
     </div>
     <div>
       <div class="sign-box">

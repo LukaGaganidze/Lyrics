@@ -116,3 +116,11 @@
   position: absolute;
   top: 0;
 }
+
+// search
+.search-nav {
+  position: relative;
+}
+.search-nav::after {
+  display: none;
+}
