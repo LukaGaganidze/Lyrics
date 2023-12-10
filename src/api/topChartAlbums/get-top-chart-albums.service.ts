@@ -19,7 +19,7 @@ export class GetTopChartAlbumsService {
 
   // getting top chart albums  based  on fm on resposne
   getTopAlbums(): Observable<FilteredTopChartAlbums[]> {
-    if (this.albumsChartBSub$.getValue().length !== 0) {
+    if (this.albumsChartBSub$.getValue().length > 0) {
       return this.albumsChartObs$;
     } else {
       // http GET  request  to get  tracks

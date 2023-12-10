@@ -1,0 +1,10 @@
+<ng-container *ngIf="tracksData as tracks">
+  <h2
+    *ngIf="tracks && tracks.length > 0"
+    class="heading mat-headline-1"
+    style="margin-bottom: 1rem"
+  >
+    #SearchResults
+  </h2>
+  <div *ngIf="tracks && tracks.length > 0" class="results-container"></div>
+</ng-container>

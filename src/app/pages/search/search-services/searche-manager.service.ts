@@ -27,12 +27,16 @@ export class SearcheManagerService implements OnDestroy {
   AlbumsObs$ = this.AlbumsBSub$.asObservable();
 
   // TRACKS
-  private TracksBSub$ = new BehaviorSubject<ModifiedTracksSearchResp[]>([]);
+  private TracksBSub$ = new BehaviorSubject<ModifiedTracksSearchResp[] | null>(
+    []
+  );
   private TracksSubscription!: Subscription;
   TracksObs$ = this.TracksBSub$.asObservable();
 
   //  ARTISTS
-  private ArtistsSub$ = new BehaviorSubject<ModifiedArtistsSearchResp[]>([]);
+  private ArtistsSub$ = new BehaviorSubject<ModifiedArtistsSearchResp[] | null>(
+    []
+  );
   private ArtistsSubscription!: Subscription;
   ArtistsObs$ = this.ArtistsSub$.asObservable();
 
@@ -56,7 +60,6 @@ export class SearcheManagerService implements OnDestroy {
         .pipe(
           map((res) => {
             const albumsArrOf10 = res.albums.items;
-            console.log(albumsArrOf10);
 
             const modifiedAlbumsArr = albumsArrOf10.map((album) => {
               return {
@@ -91,16 +94,17 @@ export class SearcheManagerService implements OnDestroy {
           this.SearchDataLoadingBSub$.next(false);
         });
     } else if (type === 'artist') {
+      this.SearchDataLoadingBSub$.next(true);
       // ARTISTS OBS
       this.TracksSubscription = this.searchArtists
         .searchForArtist(inputVal)
         .pipe(
-          filter((res) => res.artists.items.length > 0),
           map((res) => {
             const artistsArrOf10 = res.artists.items;
-
+            console.log(artistsArrOf10);
             const modifiedArtistsArr = artistsArrOf10.map((artist) => {
               return {
+                type: artist.type,
                 followers: artist.followers.total,
                 genres: artist.genres,
                 artist_id: artist.id,
@@ -114,17 +118,30 @@ export class SearcheManagerService implements OnDestroy {
             return modifiedArtistsArr;
           })
         )
-        .subscribe((data) => this.ArtistsSub$.next(data));
+        .subscribe((data) => {
+          const filteredToDisplayOnlyArtists = data.filter(
+            (album) => album.type === 'artist'
+          );
+
+          if (filteredToDisplayOnlyArtists.length > 0) {
+            this.ArtistsSub$.next(filteredToDisplayOnlyArtists);
+          } else {
+            this.ArtistsSub$.next(null);
+          }
+          this.SearchDataLoadingBSub$.next(false);
+        });
     } else if (type === 'track') {
+      this.SearchDataLoadingBSub$.next(true);
       // TRACKS OBS
       this.TracksSubscription = this.searchTracks
         .searchForTrack(inputVal)
         .pipe(
-          filter((res) => res.tracks.items.length > 0),
           map((res) => {
             const tracksArrOf10 = res.tracks.items;
+
             const modifiedTracksArr = tracksArrOf10.map((track) => {
               return {
+                type: track.type,
                 explicit: track.explicit,
                 track_spotify_URL: track.external_urls.spotify,
                 track_ID: track.id,
@@ -144,7 +161,19 @@ export class SearcheManagerService implements OnDestroy {
             return modifiedTracksArr;
           })
         )
-        .subscribe((data) => this.TracksBSub$.next(data));
+        .subscribe((data) => {
+          console.log(data);
+          const filteredToDisplayOnlyTracks = data.filter(
+            (album) => album.type === 'track'
+          );
+
+          if (filteredToDisplayOnlyTracks.length > 0) {
+            this.TracksBSub$.next(filteredToDisplayOnlyTracks);
+          } else {
+            this.TracksBSub$.next(null);
+          }
+          this.SearchDataLoadingBSub$.next(false);
+        });
     }
   }
 

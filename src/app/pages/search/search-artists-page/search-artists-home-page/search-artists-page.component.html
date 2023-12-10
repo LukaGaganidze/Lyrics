@@ -4,3 +4,42 @@
     [searchBy]="'artist'"
   ></app-searrch-input-componnent>
 </div>
+
+<ng-container *ngIf="SearchResult$ | async as artists; else noResults">
+  <div class="artist-search-results-contianer">
+    <app-artists-search-results
+      [artistsData]="artists"
+    ></app-artists-search-results>
+  </div>
+</ng-container>
+
+<ng-template #noResults>
+  <app-no-results-page [errFor]="'artist'"></app-no-results-page>
+</ng-template>
+
+<ng-container *ngIf="artistData$ | async as artistdata">
+  <div class="structural-container" id="CURRENTLY-HOT">
+    <div class="top-3">
+      <h2 class="mat-headline-1">#CurrentTop3</h2>
+      <div class="main-container">
+        <app-artist-item
+          [placement]="1"
+          [popularArtistData]="artistdata[0]"
+        ></app-artist-item>
+        <app-artist-item
+          [placement]="2"
+          [popularArtistData]="artistdata[1]"
+        ></app-artist-item>
+        <app-artist-item
+          [placement]="3"
+          [popularArtistData]="artistdata[2]"
+        ></app-artist-item>
+      </div>
+    </div>
+
+    <div class="currently-hot">
+      <h2 class="mat-headline-1">#HotRightNow</h2>
+      <app-list [artists]="artistdata"></app-list>
+    </div>
+  </div>
+</ng-container>

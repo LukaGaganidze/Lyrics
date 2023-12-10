@@ -1,13 +1,13 @@
 <div class="section-container">
   <p class="first-line mat-headline-4" style="margin-bottom: 0">
-    No matching <span>albums</span> found.
+    No matching <span>{{ errFor }}s</span> found.
   </p>
   <p class="second-line mat-headline-4" style="margin-bottom: 0">
     <span>Please try again or explore our</span>
-    <a routerLink="/albums"> top-rated albums</a>
+    <a routerLink="/{{ errFor }}s"> top-rated {{ errFor }}s</a>
   </p>
 
-  <a href="/search/search-albums#CURRENTLY-HOT" class="svg-btn">
+  <a href="/search/search-{{ errFor }}s#CURRENTLY-HOT" class="svg-btn">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"

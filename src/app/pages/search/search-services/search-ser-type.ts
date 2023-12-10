@@ -22,6 +22,7 @@ export interface ModifiedAlbumsSearchResp {
 
 // ARTISTS
 export interface ModifiedArtistsSearchResp {
+  type: string;
   followers: number;
   genres: string[];
   artist_id: string;
@@ -38,6 +39,7 @@ interface TrackArtist {
 }
 
 export interface ModifiedTracksSearchResp {
+  type: string;
   album_imgs: Image[];
   explicit: boolean;
   track_spotify_URL: string;

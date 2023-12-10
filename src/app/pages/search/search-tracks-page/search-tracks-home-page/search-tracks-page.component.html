@@ -4,3 +4,35 @@
     [searchBy]="'track'"
   ></app-searrch-input-componnent>
 </div>
+
+<ng-container *ngIf="SearchResult$ | async as tracks; else noResults">
+  <div class="artist-search-results-contianer">
+    <app-search-tracks-results
+      [tracksData]="tracks"
+    ></app-search-tracks-results>
+  </div>
+</ng-container>
+
+<ng-template #noResults>
+  <app-no-results-page [errFor]="'track'"></app-no-results-page>
+</ng-template>
+
+<ng-container *ngIf="topTracks$ | async as tracks">
+  <div class="main-container" id="CURRENTLY-HOT">
+    <div class="hero">
+      <h2 class="mat-headline-1">#PopularWorldwide</h2>
+      <tracks-hero [heroTracksData]="tracks"></tracks-hero>
+    </div>
+
+    <div class="list-of-popular-tracks">
+      <app-list-of-popular-tracks
+        [listTracksData]="tracks"
+      ></app-list-of-popular-tracks>
+    </div>
+
+    <div *ngIf="geoTracks$ | async as geoTracks" class="geo-tracks">
+      <h2 class="mat-headline-1">#PopularInGeorgia</h2>
+      <app-geo-tracks [tracksData]="geoTracks"></app-geo-tracks>
+    </div>
+  </div>
+</ng-container>

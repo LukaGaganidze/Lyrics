@@ -13,17 +13,9 @@ import { GetTopChartArtistService } from 'src/api/topChartArtists/get-top-chart-
 export class PopularArtistsComponent {
   artistData$!: Observable<topChartArtistDataType[]>;
 
-  constructor(public topCharts: GetTopChartArtistService) {}
+  constructor(private topCharts: GetTopChartArtistService) {}
 
   ngOnInit(): void {
-    this.artistData$ = this.topCharts.artistsChart$.pipe(
-      mergeMap((resp) => {
-        if (resp.length === 0) {
-          return this.topCharts.getTopArtists();
-        } else {
-          return of(resp);
-        }
-      })
-    );
+    this.artistData$ = this.topCharts.getTopArtists();
   }
 }

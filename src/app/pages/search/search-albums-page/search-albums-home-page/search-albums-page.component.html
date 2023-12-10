@@ -15,7 +15,7 @@
   </ng-container>
 
   <ng-template #noResults>
-    <app-no-results-page></app-no-results-page>
+    <app-no-results-page [errFor]="'album'"></app-no-results-page>
   </ng-template>
 
   <ng-container *ngIf="topChartAlbumsData$ | async as albumData">

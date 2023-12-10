@@ -1,3 +1,6 @@
+@use "../../../../../scss/abstracts" as a;
+@use "../../../../../scss/base" as b;
+
 .hero-container {
   min-height: 40rem;
   position: relative;
@@ -17,4 +20,25 @@
   left: 0;
   height: 100%;
   width: 100%;
+}
+
+// for  top chart content
+
+.main-container {
+  padding: 5rem 0;
+
+  & h2 {
+    text-align: center;
+    color: a.$color-secondary;
+    letter-spacing: 7px;
+    margin-bottom: 4rem;
+  }
+}
+
+.list-of-popular-tracks {
+  margin-bottom: 4rem;
+}
+
+.hero {
+  margin-bottom: 6rem;
 }

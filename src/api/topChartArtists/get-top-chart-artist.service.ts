@@ -28,44 +28,50 @@ export class GetTopChartArtistService {
   // მომღერლის სახელი last.fm --> SPORTIFY API თითოეულ სახელზე API ქოლი
 
   getTopArtists(): Observable<topChartArtistDataType[]> {
-    return this.http
-      .get<TopArtistsResponse>(
-        `${environment.apiUrl_lastFM}?method=chart.gettopartists&limit=25&api_key=${environment.API_KEY_lastFM}&format=${environment.Format_lastFM}`
-      )
-      .pipe(
-        map((resp) => {
-          const artists = resp.artists.artist;
-          const modifiedArtistData: ModifiedArtist[] = artists.map(
-            (artist) => ({
-              name: artist.name,
-              listeners: artist.listeners,
-            })
-          );
-          // Use forkJoin to concurrently fetch data for all artists
-          return forkJoin(
-            modifiedArtistData.map((artist) =>
-              this.searchArtistSer.searchForArtist(artist.name)
-            )
-          );
-        }),
-        switchMap((responses) => responses),
-        toArray(),
-        map((resp) => {
-          console.log(resp);
-          const artistData = resp[0].map((artist) => {
-            return {
-              id: artist.artists.items[0].id,
-              name: artist.artists.items[0].name,
-              image: artist.artists.items[0].images[0].url,
-              popularity: artist.artists.items[0].popularity,
-              spotify: artist.artists.items[0].external_urls.spotify,
-              genre: artist.artists.items[0].genres[0],
-            };
-          });
-          this.artistsChartBSub$.next(artistData);
-          return artistData;
-        }),
-        shareReplay()
-      );
+    // if we have value in b sub then  there is  no need  to call for backend  for  data
+    if (this.artistsChartBSub$.getValue().length > 0) {
+      return this.artistsChart$;
+    } else {
+      // if there is no data the  we  call becaked  and  store the value in beahaviur subject and return the new  data  as  observable
+      return this.http
+        .get<TopArtistsResponse>(
+          `${environment.apiUrl_lastFM}?method=chart.gettopartists&limit=25&api_key=${environment.API_KEY_lastFM}&format=${environment.Format_lastFM}`
+        )
+        .pipe(
+          map((resp) => {
+            const artists = resp.artists.artist;
+            const modifiedArtistData: ModifiedArtist[] = artists.map(
+              (artist) => ({
+                name: artist.name,
+                listeners: artist.listeners,
+              })
+            );
+            // Use forkJoin to concurrently fetch data for all artists
+            return forkJoin(
+              modifiedArtistData.map((artist) =>
+                this.searchArtistSer.searchForArtist(artist.name)
+              )
+            );
+          }),
+          switchMap((responses) => responses),
+          toArray(),
+          map((resp) => {
+            console.log(resp);
+            const artistData = resp[0].map((artist) => {
+              return {
+                id: artist.artists.items[0].id,
+                name: artist.artists.items[0].name,
+                image: artist.artists.items[0].images[0].url,
+                popularity: artist.artists.items[0].popularity,
+                spotify: artist.artists.items[0].external_urls.spotify,
+                genre: artist.artists.items[0].genres[0],
+              };
+            });
+            this.artistsChartBSub$.next(artistData);
+            return artistData;
+          }),
+          shareReplay()
+        );
+    }
   }
 }
