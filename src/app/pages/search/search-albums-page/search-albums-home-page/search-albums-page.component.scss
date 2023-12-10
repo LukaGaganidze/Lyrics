@@ -1,3 +1,6 @@
+@use "../../../../../scss/abstracts" as a;
+@use "../../../../../scss/base" as b;
+
 // hero
 .hero-container {
   min-height: 40rem;
@@ -23,4 +26,19 @@
 
 .album-search-results-contianer {
   padding: 4rem 0;
+}
+
+// for  content  after search
+.heading {
+  text-align: center;
+  color: a.$color-secondary;
+  letter-spacing: 7px;
+  margin-bottom: 4rem;
+}
+
+.section-item {
+  margin-bottom: 5rem;
+}
+.section-item:first-child {
+  margin-top: 5rem;
 }

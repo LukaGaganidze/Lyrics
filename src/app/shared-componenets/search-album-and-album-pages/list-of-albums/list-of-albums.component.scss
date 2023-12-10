@@ -1,6 +1,5 @@
-@use "../../../../../scss/abstracts" as a;
-@use "../../../../../scss/base" as b;
-
+@use "../../../../scss/abstracts" as a;
+@use "../../../../scss/base" as b;
 .list-container {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

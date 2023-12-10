@@ -5,12 +5,39 @@
   ></app-searrch-input-componnent>
 </div>
 
-<ng-container *ngIf="SearchResult$ | async as albums; else noResults">
-  <div class="album-search-results-contianer">
-    <app-album-search-results [albumsData]="albums"></app-album-search-results>
-  </div>
-</ng-container>
+<div>
+  <ng-container *ngIf="SearchResult$ | async as albums; else noResults">
+    <div class="album-search-results-contianer">
+      <app-album-search-results
+        [albumsData]="albums"
+      ></app-album-search-results>
+    </div>
+  </ng-container>
 
-<ng-template #noResults>
-  <app-no-results-page></app-no-results-page>
-</ng-template>
+  <ng-template #noResults>
+    <app-no-results-page></app-no-results-page>
+  </ng-template>
+
+  <ng-container *ngIf="topChartAlbumsData$ | async as albumData">
+    <!-- hero section -->
+    <div id="CURRENTLY-HOT" class="section-item">
+      <h2 class="heading mat-headline-1">#CurrentlyHot</h2>
+      <albums-chart-hero
+        [albumsData]="albumData.slice(0, 6)"
+      ></albums-chart-hero>
+    </div>
+
+    <!-- album list sec -->
+    <div class="section-item">
+      <h2 class="heading mat-headline-1">#OurTop100</h2>
+      <app-list-of-albums [arrayOfArtists]="albumData"></app-list-of-albums>
+    </div>
+  </ng-container>
+
+  <!-- favorite on platform sec -->
+  <!-- album list sec -->
+  <div class="section-item">
+    <h2 class="heading mat-headline-1">#PlatformFavorites</h2>
+    <app-favorite-on-platform></app-favorite-on-platform>
+  </div>
+</div>

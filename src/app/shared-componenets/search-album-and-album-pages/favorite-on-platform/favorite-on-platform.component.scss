@@ -1,6 +1,5 @@
-@use "../../../../../scss/abstracts" as a;
-@use "../../../../../scss/base" as b;
-
+@use "../../../../scss/abstracts" as a;
+@use "../../../../scss/base" as b;
 .container {
   max-width: b.$main-container-width;
   margin: 0 auto;

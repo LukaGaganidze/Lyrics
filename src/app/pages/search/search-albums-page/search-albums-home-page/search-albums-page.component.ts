@@ -6,6 +6,8 @@ import { ProgressBarService } from 'src/app/services/progress-bar/progress-bar.s
 import { SearcheManagerService } from '../../search-services/searche-manager.service';
 
 import { ModifiedAlbumsSearchResp } from '../../search-services/search-ser-type';
+import { FilteredTopChartAlbums } from 'src/api/apiTypes/topChartAlbums/top-chart-albums';
+import { GetTopChartAlbumsService } from 'src/api/topChartAlbums/get-top-chart-albums.service';
 
 @Component({
   selector: 'app-search-albums-page',
@@ -21,9 +23,13 @@ export class SearchAlbumsPageComponent
   // timer for top loading bar
   timer: any;
 
+  // Data for shared album content
+  topChartAlbumsData$!: Observable<FilteredTopChartAlbums[]>;
+
   constructor(
     private loadingBarSer: ProgressBarService,
-    private searchSer: SearcheManagerService
+    private searchSer: SearcheManagerService,
+    private gettopAlbumsSer: GetTopChartAlbumsService
   ) {}
 
   ngOnInit(): void {
@@ -32,6 +38,9 @@ export class SearchAlbumsPageComponent
 
     // data for  the template
     this.SearchResult$ = this.searchSer.AlbumsObs$;
+
+    // load  data  for  albums
+    this.topChartAlbumsData$ = this.gettopAlbumsSer.getTopAlbums();
   }
 
   ngAfterViewInit(): void {

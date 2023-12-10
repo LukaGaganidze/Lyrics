@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, OnDestroy, OnInit } from '@angular/core';
 import { ProgressBarService } from 'src/app/services/progress-bar/progress-bar.service';
 
-import { SearchAlbumsService } from 'src/api/albums/search-albums.service';
 import { GetTopChartAlbumsService } from 'src/api/topChartAlbums/get-top-chart-albums.service';
 import { FilteredTopChartAlbums } from 'src/api/apiTypes/topChartAlbums/top-chart-albums';
 import { Observable } from 'rxjs';
@@ -19,7 +18,6 @@ export class AlbumsComponent implements AfterViewInit, OnDestroy, OnInit {
 
   constructor(
     private loadingBarSer: ProgressBarService,
-    private searchAlSer: SearchAlbumsService,
     private gettopAlbumsSer: GetTopChartAlbumsService
   ) {}
 
@@ -28,6 +26,9 @@ export class AlbumsComponent implements AfterViewInit, OnDestroy, OnInit {
     this.topChartAlbumsData$ = this.gettopAlbumsSer.getTopAlbums();
   }
   ngAfterViewInit(): void {
+    // Scroll to the top of the page
+    window.scrollTo({ top: 0 });
+
     this.loadingBarSer.onFinishProgressBar();
     this.timer = setTimeout(() => {
       this.loadingBarSer.onEndProgressBar();

@@ -1,4 +1,11 @@
 <ng-container *ngIf="albumsData as albums">
+  <h2
+    *ngIf="albums && albums.length > 0"
+    class="heading mat-headline-1"
+    style="margin-bottom: 1rem"
+  >
+    #SearchResults
+  </h2>
   <div *ngIf="albums && albums.length > 0" class="results-container">
     <a href="#" *ngFor="let album of albums" class="album-Item mat-subtitle-1">
       <div class="img-container">

@@ -14,6 +14,9 @@ export class ArtistsComponent implements AfterViewInit, OnDestroy, OnInit {
     this.loadingBarSer.onStartProgressBar('artists');
   }
   ngAfterViewInit(): void {
+    // Scroll to the top of the page
+    window.scrollTo({ top: 0 });
+
     this.loadingBarSer.onFinishProgressBar();
     this.timer = setTimeout(() => {
       this.loadingBarSer.onEndProgressBar();
