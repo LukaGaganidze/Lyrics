@@ -1,0 +1,55 @@
+@use "../../../../../../scss/abstracts" as a;
+@use "../../../../../../scss/base" as b;
+
+.results-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: b.$main-container-width;
+  margin: 0 auto;
+  gap: 4rem;
+}
+
+.album-Item:link,
+.album-Item:visited {
+  color: a.$color-secondary;
+  text-decoration: none;
+}
+.album-Item {
+  border-top: solid transparent 3px;
+  border-bottom: solid transparent 3px;
+  padding: 1rem 0;
+  transition: all 0.35s ease;
+
+  & img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: all 0.35s ease;
+  }
+}
+
+.img-container {
+  overflow: hidden;
+}
+
+.album-text-container {
+  padding-top: 2rem;
+}
+
+.album-inner-box {
+  & span:first-child {
+    color: a.$text-color-non-focuseed;
+  }
+}
+
+// hover state
+
+.album-Item:hover,
+.album-Item:active {
+  border-bottom: solid a.$color-secondary 3px;
+  border-top: solid a.$color-secondary 3px;
+
+  & img {
+    transform: scale(1.05);
+  }
+}

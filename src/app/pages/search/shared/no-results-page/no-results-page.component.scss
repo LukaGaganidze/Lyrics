@@ -1,0 +1,59 @@
+@use "../../../../../scss/abstracts" as a;
+@use "../../../../../scss/base" as b;
+
+.section-container {
+  max-width: b.$main-container-width;
+  padding: 5rem 0;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.first-line {
+  margin-bottom: 2rem !important;
+}
+.second-line {
+  margin-bottom: 2rem !important;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+  & a:link,
+  & a:visited {
+    color: a.$color-primary-black-light;
+    text-decoration: none;
+    background-color: a.$color-secondary;
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+    transition: all 0.2s ease-in-out;
+    display: block;
+  }
+  & a:hover,
+  & a:active {
+    transform: translateY(-0.4rem);
+    box-shadow: 0 2px 20px 1px rgba($color: a.$color-secondary, $alpha: 0.4);
+    color: a.$color-primary-black-light;
+  }
+}
+
+.svg-btn:link,
+.svg-btn:visited {
+  color: a.$color-secondary;
+}
+.svg-btn {
+  display: block;
+  width: max-content;
+  & svg {
+    width: 10rem;
+    transition: transform 0.35s ease-in-out;
+    cursor: pointer;
+  }
+}
+.svg-btn:hover,
+.svg-btn:active {
+  & svg {
+    transform: rotate(180deg);
+  }
+}

@@ -1,0 +1,26 @@
+// hero
+.hero-container {
+  min-height: 40rem;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.background-image {
+  background-image: url("../../../../../assets/search/shared/album.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  filter: grayscale(0.6);
+}
+
+.album-search-results-contianer {
+  padding: 4rem 0;
+}

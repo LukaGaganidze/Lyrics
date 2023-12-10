@@ -5,7 +5,7 @@ import {
   HttpEvent,
   HttpErrorResponse,
 } from '@angular/common/http';
-import { Observable, catchError, tap, throwError } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 import { TokenForHttpRequstesService } from 'src/api/token-for-http-requstes.service';
 

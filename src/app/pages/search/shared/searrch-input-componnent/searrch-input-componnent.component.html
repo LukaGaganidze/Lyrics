@@ -1,0 +1,71 @@
+<div class="container">
+  <!-- input structural box -->
+  <div class="input-parent-box">
+    <h3 class="input-heading">
+      <span class="mat-headline-2 input-main-header"
+        >Search For The
+        <span>
+          {{ searchBy | capitalizeFirstLetter }}
+        </span>
+        By</span
+      >
+      <div class="input-secondary-header-box">
+        <span class="mat-headline-4" style="margin-bottom: 0">#ArtistName</span>
+        <span class="mat-headline-4" style="margin-bottom: 0">#AlbumName</span>
+        <span class="mat-headline-4" style="margin-bottom: 0">#TrackName</span>
+      </div>
+    </h3>
+    <!-- input form -->
+    <form class="input-form" [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+      <!-- input box -->
+      <div class="search-box">
+        <!-- input -->
+        <input
+          type="text"
+          class="input"
+          formControlName="searchInput"
+          placeholder="Search For {{ searchBy }}"
+        />
+
+        <!-- submit  button -->
+        <button class="search-button" type="submit">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="w-6 h-6"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+            />
+          </svg>
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <ng-container *ngIf="SearchLoadingStateObs$ | async">
+    <div class="loading-spinner-container">
+      <div class="loadingio-spinner-spinner-x0l8rqvrx6p">
+        <div class="ldio-cfiy02w56gc">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+</div>

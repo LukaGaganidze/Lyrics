@@ -1,0 +1,46 @@
+<ng-container *ngIf="albumsData as albums">
+  <div *ngIf="albums && albums.length > 0" class="results-container">
+    <a href="#" *ngFor="let album of albums" class="album-Item mat-subtitle-1">
+      <div class="img-container">
+        <img
+          src="{{ album.img[0].url }}"
+          alt="{{ 'image of album: ' + album.album_name }}"
+        />
+      </div>
+
+      <div class="album-text-container">
+        <!-- info about album and artists -->
+        <div class="album-info">
+          <!-- Album Name  and  type  -->
+          <div class="album-inner-box">
+            <span>{{ album.album_type }}: </span>
+            <span>{{ album.album_name }} </span>
+          </div>
+
+          <!-- Artists -->
+          <ng-container *ngIf="album.artists && album.artists.length > 0">
+            <div class="album-inner-box">
+              <span>Artists: </span>
+              <span *ngFor="let indArt of album.artists">{{
+                indArt.artist_name
+              }}</span>
+            </div>
+          </ng-container>
+
+          <!-- Release Date and Tracks quantity -->
+          <div class="date-n-tracks-container">
+            <div class="album-inner-box">
+              <span>Release Date: </span>
+              <span>{{ album.release_date }}</span>
+            </div>
+
+            <div class="album-inner-box">
+              <span>Tracks: </span>
+              <span>{{ album.total_tracks }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </a>
+  </div>
+</ng-container>

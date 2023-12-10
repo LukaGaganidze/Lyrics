@@ -1,0 +1,16 @@
+<div class="hero-container">
+  <div class="background-image"></div>
+  <app-searrch-input-componnent
+    [searchBy]="'album'"
+  ></app-searrch-input-componnent>
+</div>
+
+<ng-container *ngIf="SearchResult$ | async as albums; else noResults">
+  <div class="album-search-results-contianer">
+    <app-album-search-results [albumsData]="albums"></app-album-search-results>
+  </div>
+</ng-container>
+
+<ng-template #noResults>
+  <app-no-results-page></app-no-results-page>
+</ng-template>
