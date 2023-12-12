@@ -101,7 +101,6 @@ export class SearcheManagerService implements OnDestroy {
         .pipe(
           map((res) => {
             const artistsArrOf10 = res.artists.items;
-            console.log(artistsArrOf10);
             const modifiedArtistsArr = artistsArrOf10.map((artist) => {
               return {
                 type: artist.type,
@@ -119,9 +118,9 @@ export class SearcheManagerService implements OnDestroy {
           })
         )
         .subscribe((data) => {
-          const filteredToDisplayOnlyArtists = data.filter(
-            (album) => album.type === 'artist'
-          );
+          const filteredToDisplayOnlyArtists = data
+            .filter((album) => album.type === 'artist')
+            .filter((artist) => artist.images.length > 0);
 
           if (filteredToDisplayOnlyArtists.length > 0) {
             this.ArtistsSub$.next(filteredToDisplayOnlyArtists);
@@ -138,7 +137,7 @@ export class SearcheManagerService implements OnDestroy {
         .pipe(
           map((res) => {
             const tracksArrOf10 = res.tracks.items;
-
+            console.log(tracksArrOf10);
             const modifiedTracksArr = tracksArrOf10.map((track) => {
               return {
                 type: track.type,

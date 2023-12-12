@@ -6,5 +6,126 @@
   >
     #SearchResults
   </h2>
-  <div *ngIf="tracks && tracks.length > 0" class="results-container"></div>
+  <div *ngIf="tracks && tracks.length > 0" class="results-container">
+    <div class="results-structural-container">
+      <a
+        class="results-structural-container__item"
+        *ngFor="let track of tracks"
+        href="#"
+      >
+        <!-- image -->
+        <div class="image-div">
+          <img
+            src="{{ track.album_imgs[0].url }}"
+            alt="album: {{ track.album_name }} picture"
+          />
+        </div>
+
+        <!-- text content -->
+        <div class="text-container">
+          <!-- track name -->
+          <div class="text-item text-item-first">
+            <span class="text-item__inner-field">Track: </span>
+            <span class="text-item__inner-field">{{ track.track_name }}</span>
+          </div>
+
+          <!-- album name -->
+          <div class="text-item text-item-second">
+            <span class="text-item__inner-field">From Album: </span>
+            <span class="text-item__inner-field">{{ track.album_name }}</span>
+          </div>
+
+          <!-- artist name -->
+          <div class="text-item text-item-third">
+            <span class="text-item-third__inner-field-third-title"
+              >Artist:
+            </span>
+            <span
+              class="text-item-third__inner-field-third-info"
+              *ngFor="let artist of track.artists"
+            >
+              {{ artist.name }}</span
+            >
+          </div>
+
+          <!-- popularity -->
+          <div class="text-item text-item-fourth">
+            <span>Popularity On <span>Spotify</span> </span>
+
+            <div
+              class="popularity-box"
+              [ngStyle]="{ 'width.%': track.popularity }"
+            >
+              <div class="popularity-indicator">
+                <div class="inner-indicator">
+                  <div class="exscepiron"></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
 </ng-container>
+<!-- <h2 class="heading mat-headline-1" style="margin-bottom: 1rem">
+  #SearchResults
+</h2> -->

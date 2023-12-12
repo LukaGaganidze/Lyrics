@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ModifiedArtistsSearchResp } from '../../../search-services/search-ser-type';
 
 @Component({
@@ -6,6 +6,8 @@ import { ModifiedArtistsSearchResp } from '../../../search-services/search-ser-t
   templateUrl: './artists-search-results.component.html',
   styleUrls: ['./artists-search-results.component.scss'],
 })
-export class ArtistsSearchResultsComponent {
+export class ArtistsSearchResultsComponent implements OnInit {
   @Input() artistsData!: ModifiedArtistsSearchResp[];
+
+  ngOnInit(): void {}
 }

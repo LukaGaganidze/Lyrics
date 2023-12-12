@@ -6,5 +6,49 @@
   >
     #SearchResults
   </h2>
-  <div *ngIf="artists && artists.length > 0" class="results-container"></div>
+
+  <div *ngIf="artists && artists.length > 0" class="results-container">
+    <!-- display items -->
+    <div class="structural-container">
+      <!-- loop thought the items -->
+      <a
+        class="artist-item"
+        href="{{ artist.artist_id }}"
+        *ngFor="let artist of artists; let i = index"
+      >
+        <!-- some items does not have images -->
+        <div class="image-container">
+          <img
+            src="{{ artist.images[0].url }}"
+            alt="image of musician: {{ artist.artist_name }}"
+          />
+        </div>
+
+        <!-- text content -->
+        <div class="text-content">
+          <!-- artist name -->
+          <div class="artists-name">
+            <span class="non-focused">Artist: </span>
+            <span>{{ artist.artist_name }}</span>
+          </div>
+
+          <!-- genres -->
+          <ng-container *ngIf="artist.genres.length > 0">
+            <div class="genres">
+              <span class="non-focused">Genres:</span>
+              <div class="genres-inner-container">
+                <span *ngFor="let genre of artist.genres">{{ genre }}</span>
+              </div>
+            </div>
+          </ng-container>
+
+          <!-- followers -->
+          <div class="followers">
+            <span class="non-focused">Spotify Followers: </span>
+            <span>{{ artist.followers.toLocaleString() }}</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
 </ng-container>

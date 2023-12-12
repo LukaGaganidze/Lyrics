@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
 import { ModifiedTracksSearchResp } from '../../../search-services/search-ser-type';
 
 @Component({
@@ -6,6 +6,8 @@ import { ModifiedTracksSearchResp } from '../../../search-services/search-ser-ty
   templateUrl: './search-tracks-results.component.html',
   styleUrls: ['./search-tracks-results.component.scss'],
 })
-export class SearchTracksResultsComponent {
+export class SearchTracksResultsComponent implements OnInit {
   @Input() tracksData!: ModifiedTracksSearchResp[];
+
+  ngOnInit(): void {}
 }

@@ -16,7 +16,6 @@
 <ng-template #noResults>
   <app-no-results-page [errFor]="'artist'"></app-no-results-page>
 </ng-template>
-
 <ng-container *ngIf="artistData$ | async as artistdata">
   <div class="structural-container" id="CURRENTLY-HOT">
     <div class="top-3">

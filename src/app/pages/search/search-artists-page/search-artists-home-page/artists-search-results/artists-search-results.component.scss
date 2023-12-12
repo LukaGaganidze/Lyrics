@@ -1,9 +1,94 @@
-@use '../../../../../../scss/abstracts' as a;
-@use '../../../../../../scss/base' as b;
+@use "../../../../../../scss/abstracts" as a;
+@use "../../../../../../scss/base" as b;
 
 .heading {
   text-align: center;
   color: a.$color-secondary;
   letter-spacing: 7px;
   margin-bottom: 1rem;
+}
+
+.structural-container {
+  width: b.$main-container-width;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 4rem;
+}
+
+// Artist box link
+.artist-item,
+.artist-item:link,
+.artist-item:visited {
+  display: block;
+  color: a.$color-secondary;
+  text-decoration: none;
+}
+.artist-item {
+  padding: 1rem;
+  border: solid transparent 2px;
+  transition: border 0.35s ease;
+
+  & img {
+    display: block;
+    width: 100%;
+    transition: transform 0.35s ease;
+  }
+}
+
+// image
+.image-container {
+  overflow: hidden;
+  height: 40rem;
+  margin-bottom: 2rem;
+}
+
+.text-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.non-focused {
+  color: a.$text-color-non-focuseed;
+}
+
+// genres
+.genres {
+  display: flex;
+  gap: 1rem;
+}
+
+.genres-inner-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+
+  & span {
+    border: solid a.$color-secondary 1px;
+    width: max-content;
+    padding: 0.4rem 1.2rem;
+    border-radius: 1rem;
+  }
+}
+
+// hover state
+.artist-item:hover,
+.artist-item:active {
+  border: solid a.$color-secondary 2px;
+  & img {
+    transform: scale(1.05);
+  }
+
+  & .genres-inner-container {
+    & span {
+      border: solid transparent 1px;
+      background: linear-gradient(
+        to left,
+        rgba($color: #d1ff85, $alpha: 1),
+        rgba($color: a.$color-secondary-gradiant-dark, $alpha: 1)
+      );
+      color: a.$color-primary-black;
+    }
+  }
 }

@@ -31,6 +31,16 @@ export interface ModifiedArtistsSearchResp {
   popularity: number;
   spotify_URL: string;
 }
+// export interface ModifiedArtistsSearchResp {
+//  -- type: string;
+//  -- followers: number;
+//  -- genres: string[];
+//  -- artist_id: string;
+//   images: Image[];
+//   -- artist_name: string;
+//   popularity: number;
+//   spotify_URL: string;
+// }
 
 // TRACK
 interface TrackArtist {
