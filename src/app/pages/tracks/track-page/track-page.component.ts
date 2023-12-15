@@ -18,8 +18,8 @@ export class TrackPageComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private getRelatedTracksSer: GetRelatedTracksService,
-    private tracksPageHelperSer: TracksPageHelperService
+    private tracksPageHelperSer: TracksPageHelperService,
+    private getRelatedTracksSer: GetRelatedTracksService
   ) {}
 
   ngOnInit(): void {
@@ -30,7 +30,6 @@ export class TrackPageComponent implements OnInit {
     this.trackData$ = this.tracksPageHelperSer.getTrackData(
       this.currentTrackId
     );
-    this.trackData$.subscribe((dat) => console.log(dat));
 
     // getting related tracks based on track
     this.relatedTracksData$ = this.getRelatedTracksSer.relatedTracks(

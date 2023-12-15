@@ -23,6 +23,7 @@ export class TracksPageHelperService {
             track_popularity: res.popularity,
             track_type: res.type,
             track_explicit: res.explicit,
+            track_preview: res.preview_url,
           },
           track_artists_arr: res.artists.map((artist) => {
             return {

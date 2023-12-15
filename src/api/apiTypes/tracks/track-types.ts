@@ -71,6 +71,7 @@ interface Track_modified {
   track_popularity: number;
   track_type: string;
   track_explicit: boolean;
+  track_preview: string | null;
 }
 
 interface TrackArtist_modified {

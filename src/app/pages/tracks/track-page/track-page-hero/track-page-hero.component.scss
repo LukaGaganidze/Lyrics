@@ -1,0 +1,133 @@
+@use "../../../../../scss/abstracts" as a;
+@use "../../../../../scss/base" as b;
+
+// CONTAINER
+.track-hero {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  width: b.$main-container-width;
+  column-gap: 5rem;
+  margin: 0 auto;
+}
+
+// IMAGE
+.hero-img {
+  width: 100%;
+  min-height: 50rem;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+// TEXT CONTENT
+.text-cont-item {
+  padding: 2rem 0;
+}
+
+// track name
+.track-name-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: solid a.$color-secondary 1px;
+  color: a.$color-secondary;
+}
+.spotify-svg-box {
+  width: 5rem;
+  & svg {
+    width: 100%;
+    height: auto;
+  }
+}
+.spotify-svg-box:link,
+.spotify-svg-box:visited {
+  & svg {
+    transition: transform 0.35s ease;
+    fill: a.$color-secondary;
+  }
+}
+.spotify-svg-box:hover,
+.spotify-svg-box:active {
+  & svg {
+    transform: scale(1.05);
+    fill: a.$color-secondary;
+  }
+}
+
+// tracks artist
+.ind-artist,
+.album-name-box {
+  display: flex;
+  gap: 2rem;
+
+  & a:link,
+  & a:visited {
+    text-decoration: none;
+    color: a.$regular-text-color;
+    letter-spacing: 2px;
+  }
+
+  & a:hover,
+  & a:active {
+    color: a.$color-secondary;
+    text-decoration: underline;
+  }
+
+  & span {
+    color: a.$text-color-non-focuseed;
+  }
+}
+
+// popularity box
+.track-popularity {
+  border-top: solid a.$color-secondary 1px;
+  border-bottom: solid a.$color-secondary 1px;
+  padding: 1rem 0 2rem 0;
+}
+.popularity-heading {
+  margin-bottom: 0.5rem;
+  letter-spacing: 2px;
+  & span {
+    color: a.$color-secondary;
+  }
+}
+.popularity-box {
+  overflow: hidden;
+  border-radius: 0.2rem;
+  border: solid a.$color-primary-black 1px;
+}
+.popularity-indicator {
+  display: block;
+  width: 70rem;
+  height: 1.5rem;
+  background: linear-gradient(
+    to left,
+    rgba($color: #d1ff85, $alpha: 1),
+    rgba($color: a.$color-secondary-gradiant-dark, $alpha: 1)
+  );
+}
+.inner-indicator {
+  background-color: transparent;
+  height: 100%;
+  width: 100%;
+  background-clip: border-box;
+
+  display: grid;
+  grid-template-columns: repeat(59, 1fr);
+  column-gap: 0.5fr;
+  padding-left: 0.5rem;
+
+  & div {
+    width: 0.3rem;
+    background-color: a.$color-primary-black;
+  }
+}
+
+// track-album
+.album-details {
+  display: flex;
+  gap: 2rem;
+  color: a.$text-color-non-focuseed;
+  border-bottom: solid a.$color-secondary 2px;
+  padding-bottom: 2rem;
+}

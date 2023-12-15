@@ -15,6 +15,7 @@ import { ListComponent } from './search-artist-and-artist-pages/list/list.compon
 import { HeroComponent as TracksHeroComponenet } from './search-track-and-track-pages/hero/hero.component';
 import { GeoTracksComponent } from './search-track-and-track-pages/geo-tracks/geo-tracks.component';
 import { ListOfPopularTracksComponent } from './search-track-and-track-pages/list-of-popular-tracks/list-of-popular-tracks.component';
+import { TrackAudioTrackHeroComponent } from './track-audio-track-hero/track-audio-track-hero.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { ListOfPopularTracksComponent } from './search-track-and-track-pages/lis
     TracksHeroComponenet,
     GeoTracksComponent,
     ListOfPopularTracksComponent,
+    TrackAudioTrackHeroComponent,
   ],
   imports: [RouterModule, MatProgressBarModule, CommonModule],
   exports: [
@@ -42,6 +44,7 @@ import { ListOfPopularTracksComponent } from './search-track-and-track-pages/lis
     TracksHeroComponenet,
     GeoTracksComponent,
     ListOfPopularTracksComponent,
+    TrackAudioTrackHeroComponent,
   ],
 })
 export class SharedModule {}
