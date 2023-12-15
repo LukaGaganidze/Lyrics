@@ -4,7 +4,7 @@
       class="item-container"
       *ngFor="let track of tracks.slice(0, contentToshow); let i = index"
     >
-      <a href="#" class="list-item">
+      <a [routerLink]="['/tracks', track.track_Id]" class="list-item">
         <!-- main content of track info -->
         <div class="track-item-content">
           <div class="img-n-place">

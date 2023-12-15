@@ -1,7 +1,10 @@
 <ng-container *ngIf="heroTracksData as tracksData">
   <div class="hero">
     <div class="left-side sides">
-      <a class="side-link-item" href="#">
+      <a
+        class="side-link-item"
+        [routerLink]="['/tracks', tracksData[1].track_Id]"
+      >
         <img
           src="{{ tracksData[1].img_large }}"
           alt="image of song: {{ tracksData[1].song }}'s album"
@@ -12,7 +15,10 @@
         </div>
       </a>
 
-      <a class="side-link-item" href="#">
+      <a
+        class="side-link-item"
+        [routerLink]="['/tracks', tracksData[2].track_Id]"
+      >
         <img
           src="{{ tracksData[2].img_large }}"
           alt="image of song: {{ tracksData[2].song }}'s album"
@@ -24,7 +30,7 @@
       </a>
     </div>
 
-    <a href="#" class="main">
+    <a class="main" [routerLink]="['/tracks', tracksData[0].track_Id]">
       <img
         src="{{ tracksData[0].img_large }}"
         alt="image of song: {{ tracksData[0].song }}'s album"
@@ -37,7 +43,10 @@
     </a>
 
     <div class="right-side sides">
-      <a class="side-link-item" href="#">
+      <a
+        class="side-link-item"
+        [routerLink]="['/tracks', tracksData[3].track_Id]"
+      >
         <img
           src="{{ tracksData[3].img_large }}"
           alt="image of song: {{ tracksData[3].song }}'s album"
@@ -47,7 +56,10 @@
           <span>{{ tracksData[3].song }}</span>
         </div>
       </a>
-      <a class="side-link-item" href="#">
+      <a
+        class="side-link-item"
+        [routerLink]="['/tracks', tracksData[4].track_Id]"
+      >
         <img
           src="{{ tracksData[4].img_large }}"
           alt="image of song: {{ tracksData[4].song }}'s album"

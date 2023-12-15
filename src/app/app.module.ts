@@ -15,6 +15,10 @@ import { SearchModule } from './pages/search/search.module';
 import { AlbumsModule } from './pages/albums/albums.module';
 import { TracksModule } from './pages/tracks/tracks.module';
 
+import { APP_INITIALIZER } from '@angular/core';
+import { ServiceOnInitService, initializeApp } from './service-on-init.service';
+import { TokenForHttpRequstesService } from 'src/api/token-for-http-requstes.service';
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -31,6 +35,12 @@ import { TracksModule } from './pages/tracks/tracks.module';
     TracksModule,
   ],
   providers: [
+    {
+      provide: APP_INITIALIZER,
+      useFactory: initializeApp,
+      deps: [ServiceOnInitService, TokenForHttpRequstesService],
+      multi: true,
+    },
     {
       provide: HTTP_INTERCEPTORS,
       useClass: ValidationTokenInterceptorService,

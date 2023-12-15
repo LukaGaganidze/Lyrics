@@ -11,7 +11,7 @@
       <a
         class="results-structural-container__item"
         *ngFor="let track of tracks"
-        href="#"
+        [routerLink]="['/tracks', track.track_ID]"
       >
         <!-- image -->
         <div class="image-div">

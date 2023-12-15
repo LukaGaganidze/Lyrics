@@ -62,6 +62,51 @@ export interface GetTrackByIDType {
   is_local: boolean;
 }
 
+// MODIFIED GET BY ID
+interface Track_modified {
+  track_duration: number;
+  track_spot: string;
+  track_id: string;
+  track_name: string;
+  track_popularity: number;
+  track_type: string;
+  track_explicit: boolean;
+}
+
+interface TrackArtist_modified {
+  track_artist_ID: string;
+  track_artist_name: string;
+  track_artist_spot: string;
+}
+
+interface TrackAlbumArtist_modified {
+  external_urls: {
+    spotify: string;
+  };
+  href: string;
+  id: string;
+  name: string;
+  type: string;
+  uri: string;
+}
+
+interface TrackAlbum_modified {
+  track_album_artist: TrackAlbumArtist_modified[];
+  track_album_type: string;
+  track_album_spotify: string;
+  track_album_id: string;
+  track_album_image: string;
+  track_album_name: string;
+  track_album_release_date: string;
+  track_album_total_tracks: number;
+}
+
+export interface GetTrackData_modified {
+  track: Track_modified;
+  track_artists_arr: TrackArtist_modified[];
+  track_album: TrackAlbum_modified;
+}
+
 // SEARCH TRACK
 interface ExternalUrls {
   spotify: string;
